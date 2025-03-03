@@ -30,12 +30,12 @@ public class Airplane : MonoBehaviour
         rb.linearDamping = rb.linearVelocity.magnitude * drag;
         rb.angularDamping = rb.angularVelocity.magnitude * angularDrag;
 
-        //float yaw = Input.GetAxis("Horizontal") * 
-        //float pich = Input.GetAxis("Vertical") *
-        //float roll = Input.GetAxis("Roll") *
+        float yaw = Input.GetAxis("Horizontal") * YawPower;
+        float pitch = Input.GetAxis("Vertical") * PitchPower;
+        float roll = Input.GetAxis("Roll") * RollPower;
 
-        //rb.AddTorque(transform.up * yaw);
-        //rb.AddTorque(transform.right * pitch);
-        //rb.AddTorque(transform.forward * roll);
+        rb.AddTorque(transform.up * yaw);
+        rb.AddTorque(transform.right * pitch);
+        rb.AddTorque(transform.forward * roll);
     }
 }
